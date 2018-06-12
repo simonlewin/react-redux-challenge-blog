@@ -8,10 +8,12 @@ import {
 import Header from "./components/Header";
 import FourOhFour from "./components/FourOhFour";
 
+import Add from "./components/Articles/Add";
+
 import Articles from "./containers/Articles/Articles";
 import Article from "./containers/Articles/Article";
-import Add from "./components/Articles/Add";
 import Edit from "./containers/Articles/Edit";
+import Tags from "./containers/Articles/Tags";
 
 const App = () => (
 	<Fragment>
@@ -21,10 +23,9 @@ const App = () => (
 		{ /* route switch, to handle 404s */ }
 		<Switch>
 			{ /* the articles list */ }
-			{ /* use Object.values() to pass in an array of articles that we can map over */ }
 			<Route exact path="/" component={ Articles } />
 
-			{ /* show the add form - has to come before :id so "add" doesn't get treated as an id  */ }
+			{ /* show the add form */ }
 			<Route exact path="/articles/add" component={ Add } />
 
 			{ /* show the edit form */ }
@@ -35,6 +36,11 @@ const App = () => (
 			{ /* show an individual article */ }
 			<Route exact path="/articles/:id" render={ ({ match }) => (
 					<Article id={ +match.params.id } />
+			)} />
+
+			{ /* show tagged articles */ }
+			<Route exact path="/tags/:tag" render={ ({ match }) => (
+					<Tags tag={ match.params.tag } />
 			)} />
 
 			{ /* 404 page */}
