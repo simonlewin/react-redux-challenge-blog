@@ -8,7 +8,8 @@ const mapStateToProps = (state, { id }) => {
 
   const fields = article ? [
     { name: "title", label: "Title", value: article.title },
-    { name: "article", label: "Article", value: article.article }
+    { name: "article", label: "Article", value: article.article },
+    { name: "tags", label: "Tags", value: article.tags.join(", ") }
   ] : null;
 
   return { fields: fields };
