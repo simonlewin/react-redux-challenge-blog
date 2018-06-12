@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 
 import Form from "../Forms/Form";
+import FourOhFour from '../FourOhFour'
 
 // the fields the form should have
 // const fields = [
@@ -9,7 +10,7 @@ import Form from "../Forms/Form";
 // ];
 
 // the add article component
-const Edit = ({ fields }) => (
+const Edit = ({ fields }) => !fields ? <FourOhFour /> : (
   <Fragment>
     <h2>Edit Article</h2>
 

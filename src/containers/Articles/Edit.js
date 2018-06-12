@@ -6,10 +6,10 @@ import Edit from "../../components/Articles/Edit";
 const mapStateToProps = (state, { id }) => {
   let article = state.articles[id];
 
-  const fields = [
+  const fields = article ? [
     { name: "title", label: "Title", value: article.title },
     { name: "article", label: "Article", value: article.article }
-  ]
+  ] : null;
 
   return { fields: fields };
 };
