@@ -23,15 +23,13 @@ const store = createStore(
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
-let articles = store.getState().articles;
-
 // wrap Router with Provider
 // wrap the app in Router
 // pass our articles through to App using props
 ReactDOM.render(
 	<Provider store={ store }>
 		<Router history={ history }>
-			<App articles={ articles } />
+			<App />
 		</Router>
 	</Provider>,
 	document.getElementById("root"),
