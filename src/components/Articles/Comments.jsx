@@ -23,11 +23,13 @@ const Comments = ({ comments, addComment }) => (
             ))}
         </ul>
 
-        <section className="panel panel-default">
-            <h3 className="panel-heading panel-title">Add Comment</h3>
-            { /* pass through fields, button and also a className prop */ }
-            <Form className="panel-body" onSubmit={ addComment } fields={ fields } button="Add Comment" />
-        </section>
+        <div className="card">
+            <div className="card-body">
+                <h3 className="card-title">Add Comment</h3>
+                { /* pass through fields, button and also a className prop */ }
+                <Form onSubmit={ addComment } fields={ fields } button="Add Comment" />
+            </div>
+        </div>
     </React.Fragment>
 );
 

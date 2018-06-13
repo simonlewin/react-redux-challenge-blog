@@ -14,7 +14,7 @@ const Add = ({ onSubmit }) => (
     <React.Fragment>
         <h2>Add Article</h2>
 
-        <Form onSubmit={ onSubmit } className="panel-body" fields={ fields } button="Add Article" />
+        <Form onSubmit={ onSubmit } fields={ fields } button="Add Article" />
     </React.Fragment>
 );
 
