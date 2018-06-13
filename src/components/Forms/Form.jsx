@@ -12,6 +12,7 @@ class Form extends Component {
         this.state = {
             fields: props.fields.slice(),
         }
+        this.submit = this.submit.bind(this);
     }
 
     handleChange(e, i) {
@@ -24,11 +25,33 @@ class Form extends Component {
         return !this.state.fields.every(({ value }) => value);
     }
 
+    submit(e) {
+        e.preventDefault();
+        // for each field use the name as a key and the value as a value
+        // don't need the label
+        const data = this.state.fields.reduce((data, { name, value }) => {
+            data[name] = value;
+            return data;
+        }, {});
+
+        this.props.onSubmit(data);
+
+        // clear fields
+        this.setState({
+            fields: this.state.fields.map(field => {
+                return {
+                    ...field,
+                    value: '',
+                };
+            }),
+        });     
+    }
+
     render() {
         const { className, button } = this.props;
 
         return (
-            <form className={ "form" + (className ? " " + className : "") } >
+            <form onSubmit={ this.submit } className={ "form" + (className ? " " + className : "") } >
                 { this.state.fields.map(({ name, label, value }, i) => (
                     <Input
                         key={ i }

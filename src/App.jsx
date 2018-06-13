@@ -8,12 +8,11 @@ import {
 import Header from "./components/Header";
 import FourOhFour from "./components/FourOhFour";
 
-import Add from "./components/Articles/Add";
-
 import Articles from "./containers/Articles/Articles";
 import Article from "./containers/Articles/Article";
 import Edit from "./containers/Articles/Edit";
 import Tags from "./containers/Articles/Tags";
+import Add from "./containers/Articles/Add";
 
 const App = () => (
 	<Fragment>
