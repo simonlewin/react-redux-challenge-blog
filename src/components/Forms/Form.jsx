@@ -38,7 +38,7 @@ class Form extends Component {
                         onChange={ e => this.handleChange(e, i) }
                     />
                 ))}
-                <button disabled={ this.isDisabled() } className="btn btn-success">{ button }</button>
+                <button disabled={ this.isDisabled() } className="float-right btn btn-success">{ button }</button>
             </form>
         );
     }

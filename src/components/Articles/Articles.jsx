@@ -8,10 +8,10 @@ const Articles = ({ articles }) => (
 	<React.Fragment>
 		{ /* check there are articles to show */ }
 		{ articles.length ?
-			<ul className="list-group">
+			<ul className="list-group list-group-flush">
 				{ /* map over each article and display a list item for each one */ }
 				{ articles.map(article => (
-					<li className="list-group-item" key={ article.id }>
+					<li className="list-group-item list-group-item-action" key={ article.id }>
 						{ /* link to the article using its id */ }
 						<Link to={ "/articles/" + article.id }>{ article.title }</Link>
 						{ /* use the Tags component to show the tags */ }

@@ -15,6 +15,6 @@ const mapStateToProps = (state, { id }) => {
   return { fields: fields };
 };
 
-// connect up mapStateToProps with the Article component
-// Article's props are now controlled by this file
+// connect up mapStateToProps with the Edit component
+// Edit's props are now controlled by this file
 export default connect(mapStateToProps)(Edit);
