@@ -40,10 +40,25 @@ const deleteArticle = (state, {id}) => {
   };
 };
 
+const editArticle = (state, {id, article, title}) => {
+  return {
+    ...state,
+    articles: {
+      ...state.articles,
+      [id]: {
+        ...state.articles[id],
+        title: title,
+        article: article,
+      }
+    }
+  }
+}
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "addArticle": return addArticle(state, action);
     case "deleteArticle": return deleteArticle(state, action);
+    case "editArticle": return editArticle(state, action);
     default: return state;
   }
 }

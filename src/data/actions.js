@@ -18,3 +18,12 @@ export const deleteArticle = id => {
     id: id,
   }
 }
+
+export const editArticle = (id, {title, article}) => {
+  return {
+    type: 'editArticle',
+    id: id,
+    title: title,
+    article: article,
+  }
+}

@@ -4,11 +4,11 @@ import Form from "../Forms/Form";
 import FourOhFour from '../FourOhFour'
 
 // the edit article component
-const Edit = ({ fields }) => !fields ? <FourOhFour /> : (
+const Edit = ({ fields, onSubmit }) => !fields ? <FourOhFour /> : (
   <Fragment>
     <h2>Edit Article</h2>
 
-    <Form className="panel-body" fields={ fields } button="Edit Article" />
+    <Form onSubmit={ onSubmit } className="panel-body" fields={ fields } button="Edit Article" />
   </Fragment>
 );
 
