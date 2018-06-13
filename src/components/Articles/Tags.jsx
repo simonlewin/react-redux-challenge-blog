@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Tags = ({ tags }) => (
 	<Fragment>
 		{ tags.map((tag, i) => (
-			<Link key={ i } to={ "/tags/" + tag } className="label label-primary">
+			<Link key={ i } to={ "/tags/" + tag } className="badge badge-info">
 				{ tag }
 			</Link>
 		))}

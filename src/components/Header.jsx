@@ -10,7 +10,7 @@ const Header = ({ children, subtitle }) => (
             { " " }
             { subtitle ? <small>{ subtitle }</small> : null }
 
-            <aside className="pull-right">
+            <aside className="float-right">
                 <Link to="/articles/add" className="btn btn-primary">Add Article</Link>
             </aside>
         </h1>

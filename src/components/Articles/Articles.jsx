@@ -15,7 +15,7 @@ const Articles = ({ articles }) => (
 						{ /* link to the article using its id */ }
 						<Link to={ "/articles/" + article.id }>{ article.title }</Link>
 						{ /* use the Tags component to show the tags */ }
-						<div className='pull-right'>
+						<div className='float-right'>
 							<Tags tags={ article.tags } />
 						</div>
 					</li>
