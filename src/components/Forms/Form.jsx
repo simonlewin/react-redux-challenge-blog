@@ -10,7 +10,8 @@ class Form extends Component {
         super(props);
 
         this.state = {
-            fields: props.fields.slice(),
+            // fields: props.fields.slice(),
+            fields: Object.assign({}, props.fields);
         }
         this.submit = this.submit.bind(this);
     }

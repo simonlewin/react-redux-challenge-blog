@@ -3,7 +3,7 @@
 let lastID = 2;
 
 // create a function that returns a new article
-const createArticle = ({ title, article }) => {
+const createArticle = ({ title, article, tags }) => {
   // up the ID by 1 every time
   lastID += 1;
 
@@ -12,7 +12,7 @@ const createArticle = ({ title, article }) => {
     title: title,
     article: article,
     comments: [],
-    tags: [],
+    tags: tags,
   };
 };
 
@@ -40,7 +40,7 @@ const deleteArticle = (state, {id}) => {
   };
 };
 
-const editArticle = (state, {id, article, title}) => {
+const editArticle = (state, {id, article, title, tags}) => {
   return {
     ...state,
     articles: {
@@ -49,6 +49,7 @@ const editArticle = (state, {id, article, title}) => {
         ...state.articles[id],
         title: title,
         article: article,
+        tags: tags,
       }
     }
   }
