@@ -6,7 +6,7 @@ let lastID = 2;
 const createArticle = ({ title, article }) => {
   // up the ID by 1 every time
   lastID += 1;
-  
+
   return {
     id: lastID,
     title: title,
@@ -30,9 +30,20 @@ const addArticle = (state, action) => {
   }
 }
 
+const deleteArticle = (state, {id}) => {
+  let { ...updated } = state.articles;
+  delete updated[id];
+
+  return {
+    ...state,
+    articles: updated,
+  };
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "addArticle": return addArticle(state, action);
+    case "deleteArticle": return deleteArticle(state, action);
     default: return state;
   }
 }

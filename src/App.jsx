@@ -13,6 +13,7 @@ import Article from "./containers/Articles/Article";
 import Edit from "./containers/Articles/Edit";
 import Tags from "./containers/Articles/Tags";
 import Add from "./containers/Articles/Add";
+import Delete from "./containers/Articles/Delete";
 
 const App = () => (
 	<Fragment>
@@ -30,6 +31,11 @@ const App = () => (
 			{ /* show the edit form */ }
 			<Route exact path="/articles/:id/edit" render={ ({ match }) => (
 					<Edit id={ +match.params.id } />
+			)} />
+
+			{ /* show the delete form */ }
+			<Route exact path="/articles/:id/delete" render={ ({ match }) => (
+					<Delete id={ +match.params.id } />
 			)} />
 
 			{ /* show an individual article */ }
