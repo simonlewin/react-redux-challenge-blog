@@ -11,13 +11,14 @@ class Form extends Component {
 
         this.state = {
             // fields: props.fields.slice(),
-            fields: Object.assign({}, props.fields);
+            fields: props.fields.map(a => ({...a}))
         }
         this.submit = this.submit.bind(this);
     }
 
     handleChange(e, i) {
         const fields = this.state.fields.slice();
+        // const fields = this.state.fields.map(a => ({...a}))
         fields[i].value = e.target.value;
         this.setState({ fields: fields });
     }
