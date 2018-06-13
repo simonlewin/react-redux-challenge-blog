@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
 
+import history from "../../history";
+
 import { deleteArticle } from "../../data/actions";
 
 import Delete from "../../components/Articles/Delete";
@@ -9,7 +11,11 @@ import Delete from "../../components/Articles/Delete";
 const mapDispatchToProps = (dispatch, { id }) => {
   return {
     // onSubmit is a function which dispatches an action "addArticle"
-    onClick: () => dispatch(deleteArticle(id)),
+    onClick: () => {
+      dispatch(deleteArticle(id));
+      // go to home page
+      history.push("/");
+    }
   };
 };
 

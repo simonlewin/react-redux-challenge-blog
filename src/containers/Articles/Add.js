@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
 
+import history from "../../history";
+
 import { addArticle } from "../../data/actions";
 
 import Add from "../../components/Articles/Add";
@@ -13,7 +15,12 @@ import Add from "../../components/Articles/Add";
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSubmit: data => dispatch(addArticle(data))
+    onSubmit: data => {
+      dispatch(addArticle(data));
+
+      // go to home page
+      history.push("/");
+    },
   }
 };
 
