@@ -22,7 +22,7 @@ const Articles = ({ articles }) => (
 				))}
 			</ul>
 			:
-			<p>No articles found</p>
+			<p className="alert alert-warning" role="alert">No articles found</p>
 		}
 	</React.Fragment>
 );

@@ -1,6 +1,7 @@
 // create some dummy articles
 // store them in an object
 // so that we can easily reference each one by its id
+
 const initial = { 
   articles: {
 		1: {
