@@ -1,29 +1,24 @@
-// export const addArticle = ({ title, article }) => ({
-//     type: 'addArticle',
-//     title: title,
-//     article: article
-//   });
-
-export const addArticle = ({ title, article }) => {
-  return {
+export const addArticle = ({ title, article }) => ({
     type: 'addArticle',
     title: title,
-    article: article,
-  }
-}
+    article: article
+  });
 
-export const deleteArticle = id => {
-  return {
-    type: 'deleteArticle',
-    id: id,
-  }
-}
+export const deleteArticle = id => ({
+  type: 'deleteArticle',
+  id: id,
+});
 
-export const editArticle = (id, {title, article}) => {
-  return {
-    type: 'editArticle',
+export const editArticle = (id, {title, article}) => ({
+  type: 'editArticle',
+  id: id,
+  title: title,
+  article: article,
+});
+
+export const addComment = (id, { email, comment }) => ({
+    type: "addComment",
     id: id,
-    title: title,
-    article: article,
-  }
-}
+    email: email,
+    comment: comment,
+});

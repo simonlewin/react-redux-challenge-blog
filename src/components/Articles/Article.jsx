@@ -7,7 +7,7 @@ import Tags from "./Tags";
 import Comments from "./Comments";
 
 // if article isn't passed in, that means it's an invalid id, so show FourOhFour
-const Article = ({ article }) => !article ? <FourOhFour /> : (
+const Article = ({ article, addComment }) => !article ? <FourOhFour /> : (
     <React.Fragment>
         { /* the edit/delete buttons  */ }
         <Actions article={ article } />
@@ -23,7 +23,7 @@ const Article = ({ article }) => !article ? <FourOhFour /> : (
         <hr />
 
         { /* use the comments component */ }
-        <Comments comments={ article.comments } />
+        <Comments comments={ article.comments } addComment={ addComment }/>
     </React.Fragment>
 );
 

@@ -54,11 +54,28 @@ const editArticle = (state, {id, article, title}) => {
   }
 }
 
+const addComment = (state, { id, email, comment }) => {
+  return {
+    ...state,
+    articles: {
+      ...state.articles,
+      [id]: {
+        ...state.articles[id],
+        comments: state.articles[id].comments.concat([{
+          email: email,
+          comment: comment,
+        }]),
+      },
+    },
+  };
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "addArticle": return addArticle(state, action);
     case "deleteArticle": return deleteArticle(state, action);
     case "editArticle": return editArticle(state, action);
+    case "addComment": return addComment(state, action);
     default: return state;
   }
 }
