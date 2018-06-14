@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import history from "../../history";
 
-import { editArticle } from "../../data/actions";
+import { editArticle } from "../../data/actions/state";
 
 import Edit from "../../components/Articles/Edit";
 

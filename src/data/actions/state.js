@@ -24,3 +24,10 @@ export const addComment = (id, { email, comment }) => ({
     email: email,
     comment: comment,
 });
+
+export const setTitles = titles => {
+  return {
+    type: "setTitles",
+    titles: titles,
+  };
+};

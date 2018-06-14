@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import Article from "../../components/Articles/Article";
 
-import { addComment } from "../../data/actions";
+import { addComment } from "../../data/actions/state";
 
 // the second argument passed to mapStateToProps represent the props passed in from the parent
 const mapStateToProps = (state, { id }) => ({

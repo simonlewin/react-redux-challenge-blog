@@ -6,7 +6,8 @@ import history from "./history";
 import { Router } from "react-router-dom";
 
 // redux
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
 
 import reducer from './data/reducer'
 import initial from './data/initial'
@@ -17,10 +18,12 @@ import App from "./App";
 // react-redux
 import { Provider } from "react-redux";
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
-	reducer,
-	initial,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+	reducer, 
+	initial, 
+	composeEnhancers(applyMiddleware(thunk))
 );
 
 // wrap Router with Provider
