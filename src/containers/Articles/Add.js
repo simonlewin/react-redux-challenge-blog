@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
-import history from "../../history";
-
-import { addArticle } from "../../data/actions/state";
+// import { addArticle } from "../../data/actions/state";
+// import in the postArticles API action
+import { postArticles } from "../../data/actions/api";
 
 import Add from "../../components/Articles/Add";
 
@@ -16,10 +16,7 @@ import Add from "../../components/Articles/Add";
 const mapDispatchToProps = dispatch => {
   return {
     onSubmit: data => {
-      dispatch(addArticle(data));
-
-      // go to home page
-      history.push("/");
+      dispatch(postArticles(data));
     },
   }
 };
