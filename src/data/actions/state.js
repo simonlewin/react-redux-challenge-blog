@@ -8,12 +8,9 @@ export const removeArticle = id => ({
   id: id,
 });
 
-export const editArticle = (id, {title, article, tags}) => ({
+export const editArticle = article => ({
   type: 'editArticle',
-  id: id,
-  title: title,
-  article: article,
-  tags: tags.split(/,\s+/),
+  article: article,  
 });
 
 export const addComment = (id, { email, comment }) => ({
@@ -34,5 +31,13 @@ export const setArticle = article => {
   return {
     type: "setArticle",
     article: article,
+  };
+};
+
+export const setComments = (id, comments) => {
+  return {
+      type: "setComments",
+      id: id,
+      comments: comments,
   };
 };

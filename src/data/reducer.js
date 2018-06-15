@@ -19,17 +19,13 @@ const removeArticle = (state, {id}) => {
   };
 };
 
-const editArticle = (state, {id, article, title, tags}) => {
+const editArticle = (state, { article }) => {
+  article.comments = [];
   return {
     ...state,
     articles: {
       ...state.articles,
-      [id]: {
-        ...state.articles[id],
-        title: title,
-        article: article,
-        tags: tags,
-      },
+      [article.id]: article,
     },
   };
 };
@@ -71,6 +67,19 @@ const setArticle = (state, { article }) => {
   };
 };
 
+const setComments = (state, {id, comments}) => {
+  return {
+    ...state,
+    articles: {
+      ...state.articles,
+      [id]: {
+        ...state.articles[id],
+        comments: comments,
+      }
+    }
+  }
+}
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "addArticle": return addArticle(state, action);
@@ -79,6 +88,7 @@ const reducer = (state, action) => {
     case "addComment": return addComment(state, action);
     case "setTitles": return setTitles(state, action);
     case "setArticle": return setArticle(state, action);
+    case "setComments": return setComments(state, action);
     default: return state;
   }
 };
