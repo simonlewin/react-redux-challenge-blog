@@ -2,8 +2,7 @@ import { connect } from "react-redux";
 
 import Article from "../../components/Articles/Article";
 
-import { addComment } from "../../data/actions/state";
-import { getArticle } from "../../data/actions/api";
+import { getArticle, postComment } from "../../data/actions/api";
 
 // the second argument passed to mapStateToProps represent the props passed in from the parent
 const mapStateToProps = (state, { id }) => ({
@@ -13,7 +12,7 @@ const mapStateToProps = (state, { id }) => ({
 // setup mapDispatchToProps to call the action
 const mapDispatchToProps = (dispatch, { id }) => ({
   onLoad: () => dispatch(getArticle(id)),
-  addComment: data => dispatch(addComment(id, data)),
+  addComment: data => dispatch(postComment(id, data)),
 });
 
 // connect up mapStateToProps with the Article component

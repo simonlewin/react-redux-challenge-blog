@@ -30,17 +30,14 @@ const editArticle = (state, { article }) => {
   };
 };
 
-const addComment = (state, { id, email, comment }) => {
+const addComment = (state, { id, comment }) => {
   return {
     ...state,
     articles: {
       ...state.articles,
       [id]: {
         ...state.articles[id],
-        comments: state.articles[id].comments.concat([{
-          email: email,
-          comment: comment,
-        }]),
+        comments: state.articles[id].comments.concat([comment]),
       },
     },
   };

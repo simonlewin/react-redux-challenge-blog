@@ -13,10 +13,9 @@ export const editArticle = article => ({
   article: article,  
 });
 
-export const addComment = (id, { email, comment }) => ({
+export const addComment = (id, comment ) => ({
     type: "addComment",
     id: id,
-    email: email,
     comment: comment,
 });
 
