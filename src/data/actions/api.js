@@ -4,7 +4,7 @@ import axios from "../axios";
 import history from "../../history";
 
 // import the setTitles action
-import { setTitles, addArticle, setArticle } from "./state";
+import { setTitles, addArticle, setArticle, removeArticle } from "./state";
 
 export const getTitles = () => dispatch => {
 	axios.get("/articles").then(({ data }) => {
@@ -27,8 +27,17 @@ export const postArticles = data => dispatch => {
 };
 
 export const getArticle = id => dispatch => {
-	axios.get("/articles/" + id).then(({ data }) => {
+	axios.get(`/articles/${id}`).then(({ data }) => {
 		const article = data.data;
 		dispatch(setArticle(article));
+	});
+};
+
+export const deleteArticle = id => dispatch => {
+	axios.delete(`/articles/${id}`).then(() => {
+		dispatch(removeArticle(id));
+
+		// go to home page
+		history.push("/");		
 	});
 };

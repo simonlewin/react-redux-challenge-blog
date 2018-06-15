@@ -1,4 +1,5 @@
 const addArticle = (state, { article }) => {
+  article.comments = [];
   return {
     ...state,
     articles: {
@@ -8,7 +9,7 @@ const addArticle = (state, { article }) => {
   };
 };
 
-const deleteArticle = (state, {id}) => {
+const removeArticle = (state, {id}) => {
   let { ...updated } = state.articles;
   delete updated[id];
 
@@ -73,7 +74,7 @@ const setArticle = (state, { article }) => {
 const reducer = (state, action) => {
   switch (action.type) {
     case "addArticle": return addArticle(state, action);
-    case "deleteArticle": return deleteArticle(state, action);
+    case "removeArticle": return removeArticle(state, action);
     case "editArticle": return editArticle(state, action);
     case "addComment": return addComment(state, action);
     case "setTitles": return setTitles(state, action);

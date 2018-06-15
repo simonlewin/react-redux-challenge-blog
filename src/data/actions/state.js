@@ -3,8 +3,8 @@ export const addArticle = ( article ) => ({
     article: article,
   });
 
-export const deleteArticle = id => ({
-  type: 'deleteArticle',
+export const removeArticle = id => ({
+  type: 'removeArticle',
   id: id,
 });
 
