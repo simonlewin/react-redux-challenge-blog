@@ -13,15 +13,17 @@ const Comments = ({ comments, addComment }) => (
     <React.Fragment>
         <h2>Comments</h2>
 
-        <ul className="list-group">
-            { /* loop over all the comments */ }
-            { comments.map((comment, i) => (
-                <li key={ i } className="list-group-item">
-                    <h4 className="list-group-item-heading">{ comment.email }</h4>
-                    <p className="list-group-item-text">{ comment.comment }</p>
-                </li>
-            ))}
-        </ul>
+        { comments.length === 0 ? <p>No comments</p> : (
+            <ul className="list-group">
+                { /* loop over all the comments */ }
+                { comments.map((comment, i) => (
+                    <li key={ i } className="list-group-item">
+                        <h4 className="list-group-item-heading">{ comment.email }</h4>
+                        <p className="list-group-item-text">{ comment.comment }</p>
+                    </li>
+                ))}
+            </ul>
+        )}
 
         <div className="card">
             <div className="card-body">

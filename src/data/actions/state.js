@@ -29,3 +29,10 @@ export const setTitles = titles => {
     titles: titles,
   };
 };
+
+export const setArticle = article => {
+  return {
+    type: "setArticle",
+    article: article,
+  };
+};

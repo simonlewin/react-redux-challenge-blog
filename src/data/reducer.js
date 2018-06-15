@@ -1,13 +1,12 @@
 const addArticle = (state, { article }) => {
-
   return {
     ...state,
     articles: {
-        ...state.articles,
-        [article.id]: article,
-    }
-  }
-}
+      ...state.articles,
+      [article.id]: article,
+    },
+  };
+};
 
 const deleteArticle = (state, {id}) => {
   let { ...updated } = state.articles;
@@ -29,10 +28,10 @@ const editArticle = (state, {id, article, title, tags}) => {
         title: title,
         article: article,
         tags: tags,
-      }
-    }
-  }
-}
+      },
+    },
+  };
+};
 
 const addComment = (state, { id, email, comment }) => {
   return {
@@ -58,6 +57,19 @@ const setTitles = (state, { titles }) => {
   };
 };
 
+const setArticle = (state, { article }) => {
+  return {
+    ...state,
+    articles: {
+      ...state.articles,
+      [article.id]: { 
+        ...article,
+        comments: [],
+      },
+    },
+  };
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "addArticle": return addArticle(state, action);
@@ -65,8 +77,9 @@ const reducer = (state, action) => {
     case "editArticle": return editArticle(state, action);
     case "addComment": return addComment(state, action);
     case "setTitles": return setTitles(state, action);
+    case "setArticle": return setArticle(state, action);
     default: return state;
   }
-}
+};
 
 export default reducer

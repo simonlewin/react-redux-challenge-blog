@@ -3,7 +3,6 @@ import React from "react";
 import Tags from "./Tags";
 import FourOhFour from "../FourOhFour";
 
-// accept the onSubmit prop we just added
 const Delete = ({ article, onClick }) => !article ? <FourOhFour /> : (
   <div>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 import FourOhFour from "../FourOhFour";
 
@@ -7,24 +7,34 @@ import Tags from "./Tags";
 import Comments from "./Comments";
 
 // if article isn't passed in, that means it's an invalid id, so show FourOhFour
-const Article = ({ article, addComment }) => !article ? <FourOhFour /> : (
-    <React.Fragment>
-        { /* the edit/delete buttons  */ }
-        <Actions article={ article } />
+class Article extends Component {
+	componentDidMount() {
+		this.props.onLoad();
+	}
 
-        <h2>{ article.title }</h2>
+	render () {
+		const { article, addComment } = this.props;
 
-        { /* allows us to set HTML inside an element */ }
-        <article dangerouslySetInnerHTML={{ __html: article.article }} />
+		return !article ? <FourOhFour /> : (
+			<React.Fragment>
+					{ /* the edit/delete buttons  */ }
+					<Actions article={ article } />
 
-        { /* use the Tags component to show the tags */ }
-        <Tags tags={ article.tags } />
+					<h2>{ article.title }</h2>
 
-        <hr />
+					{ /* allows us to set HTML inside an element */ }
+					<article dangerouslySetInnerHTML={{ __html: article.article }} />
 
-        { /* use the comments component */ }
-        <Comments comments={ article.comments } addComment={ addComment }/>
-    </React.Fragment>
-);
+					{ /* use the Tags component to show the tags */ }
+					<Tags tags={ article.tags } />
+
+					<hr />
+
+					{ /* use the comments component */ }
+					<Comments comments={ article.comments } addComment={ addComment }/>
+			</React.Fragment>
+		);
+	}
+}
 
 export default Article;
